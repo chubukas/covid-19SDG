@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Covid-19 App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="inner">
+        <div class="image-holder">
+          <img src="images/registration-form-4.jpg" alt="" />
+        </div>
+        <form action="">
+          <h3>Novelty COVID-19 Infections Estimator</h3>
+          <div class="form-holder active">
+            <input
+              type="number"
+              placeholder="Population"
+              class="form-control"
+              id="population"
+              aria-describedby="Population"
+              data-population
+            />
+          </div>
+          <div class="form-holder">
+            <input
+              type="number"
+              class="form-control"
+              id="timeToElapse"
+              data-time-to-elapse
+              placeholder="Time To Elapse"
+              aria-describedby="timeToElapse"
+            />
+          </div>
+          <div class="form-holder">
+            <input
+              type="number"
+              class="form-control"
+              id="reportedCases"
+              aria-describedby="reportedCases"
+              data-reported-cases
+              placeholder="Reported Cases"
+            />
+          </div>
+          <div class="form-holder">
+            <input
+              type="number"
+              class="form-control"
+              id="totalHospitalBeds"
+              data-total-hospital-beds
+              placeholder="Total Hospital Beds"
+              aria-placeholder="Total Hospital Beds"
+            />
+          </div>
+          <div class="form-holder">
+            <select
+              class="form-control"
+              id="periodType"
+              data-period-type
+              style="font-size: 1rem;"
+            >
+              <option selected>Period Type</option>
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months</option>
+            </select>
+          </div>
+
+          <button data-go-estimate>Send Data</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="./src/estimator.js" type="module"></script>
+  </body>
+</html>

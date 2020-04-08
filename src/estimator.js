@@ -8,9 +8,6 @@ const covid19ImpactEstimator = data => {
   let impact,
     severeImpact = {};
 
-  // let days = days / 3;
-  // days = 2 ** days;
-
   // IMPACT
   impact = impacts(reportedCases, totalHospitalBeds);
 
