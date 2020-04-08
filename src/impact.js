@@ -1,13 +1,17 @@
 const impact = (reportedCases, totalHospitalBeds) => {
-  let currentlyInfected = Math.round(reportedCases * 10);
-  let infectionsByRequestedTime = Math.round(currentlyInfected * 1024);
-  let severeCasesByRequestedTime = Math.round(infectionsByRequestedTime / 0.15);
-  let hospitalBedsByRequestedTime = Math.round(totalHospitalBeds * 0.35);
-  let casesForICUByRequestedTime = Math.round(infectionsByRequestedTime / 0.05);
-  let casesForVentilatorsByRequestedTime = Math.round(
+  const currentlyInfected = Math.round(reportedCases * 10);
+  const infectionsByRequestedTime = Math.round(currentlyInfected * 1024);
+  const severeCasesByRequestedTime = Math.round(
+    infectionsByRequestedTime / 0.15
+  );
+  const hospitalBedsByRequestedTime = Math.round(totalHospitalBeds * 0.35);
+  const casesForICUByRequestedTime = Math.round(
+    infectionsByRequestedTime / 0.05
+  );
+  const casesForVentilatorsByRequestedTime = Math.round(
     infectionsByRequestedTime / 0.02
   );
-  let dollarsInFlight = Math.round(infectionsByRequestedTime * 0.71 * 5 * 30);
+  const dollarsInFlight = Math.round(infectionsByRequestedTime * 0.71 * 5 * 30);
 
   return {
     currentlyInfected,
