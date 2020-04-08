@@ -1,7 +1,7 @@
 import impacts from './impact';
 import severeImpacts from './severeImpact';
 
-const covid19ImpactEstimator = data => {
+const covid19ImpactEstimator = (data) => {
   const { reportedCases, totalHospitalBeds } = data;
 
   // IMPACT
