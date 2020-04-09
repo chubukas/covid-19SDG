@@ -11,10 +11,22 @@ const covid19ImpactEstimator = (data) => {
   } = data;
 
   // IMPACT
-  const impact = impacts(reportedCases, totalHospitalBeds,periodType,timeToElapse);
+  const impact = impacts(
+    reportedCases,
+    totalHospitalBeds,
+    periodType,
+    timeToElapse,
+    population
+  );
 
   // SEVEREIMPACT
-  const severeImpact = severeImpacts(reportedCases, totalHospitalBeds,periodType,timeToElapse);
+  const severeImpact = severeImpacts(
+    reportedCases,
+    totalHospitalBeds,
+    periodType,
+    timeToElapse,
+    population
+  );
 
   return { impact, severeImpact, data };
 };
