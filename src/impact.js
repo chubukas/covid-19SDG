@@ -14,16 +14,16 @@ const impact = (reportedCases, totalHospitalBeds, periodType, timeToElapse) => {
   const currentlyInfected = Math.round(reportedCases * 10);
   const infectionsByRequestedTime = Math.round(currentlyInfected * factor);
   const severeCasesByRequestedTime = Math.trunc(
-    infectionsByRequestedTime / 0.15
+    infectionsByRequestedTime * 0.15
   );
   const hospitalBedsByRequestedTime = Math.trunc(
     totalHospitalBeds * 0.35 - severeCasesByRequestedTime
   );
   const casesForICUByRequestedTime = Math.trunc(
-    infectionsByRequestedTime / 0.05
+    infectionsByRequestedTime * 0.05
   );
   const casesForVentilatorsByRequestedTime = Math.trunc(
-    infectionsByRequestedTime / 0.02
+    infectionsByRequestedTime * 0.02
   );
   const dollarsInFlight = Math.trunc(infectionsByRequestedTime * 0.71 * 5 * 30);
 
