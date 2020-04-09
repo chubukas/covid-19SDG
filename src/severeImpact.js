@@ -34,7 +34,7 @@ const severeImpact = (
     infectionsByRequestedTime * 0.02
   );
   const dollarsInFlight = infectionsByRequestedTime
-    * avgDailyIncomePopulation * avgDailyIncomeInUSD * factor
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD * factor;
 
   return {
     currentlyInfected,
