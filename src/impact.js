@@ -1,6 +1,22 @@
-const impact = (reportedCases, totalHospitalBeds) => {
+const impact = (reportedCases, totalHospitalBeds, periodType, timeToElapse) => {
+  let factor;
+
+  if ((periodType = 'days')) {
+    factor = Math.trunc(timeToElapse / 3);
+    factor = 2 ** factor;
+  }
+
+  if ((periodType = 'weeks')) {
+    factor = Math.trunc((timeToElapse * 7) / 3);
+    factor = 2 ** factor;
+  }
+
+  if ((periodType = 'months')) {
+    factor = Math.trunc((timeToElapse * 30) / 3);
+    factor = 2 ** factor;
+  }
   const currentlyInfected = Math.round(reportedCases * 10);
-  const infectionsByRequestedTime = Math.round(currentlyInfected * 1024);
+  const infectionsByRequestedTime = Math.round(currentlyInfected * factor);
   const severeCasesByRequestedTime = Math.round(
     infectionsByRequestedTime / 0.15
   );
