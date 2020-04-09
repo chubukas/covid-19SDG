@@ -19,8 +19,8 @@ const severeImpact = (
     factor = 2 ** factor;
   }
 
-  const currentlyInfected = Math.round(reportedCases * 50);
-  const infectionsByRequestedTime = Math.round(currentlyInfected * factor);
+  const currentlyInfected = Math.trunc(reportedCases * 50);
+  const infectionsByRequestedTime = Math.trunc(currentlyInfected * factor);
   const severeCasesByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.15
   );
