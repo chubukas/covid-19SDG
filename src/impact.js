@@ -1,18 +1,13 @@
-const impact = (
-  reportedCases,
-  totalHospitalBeds,
-  periodType,
-  timeToElapse,
-) => {
+const impact = (reportedCases, totalHospitalBeds, periodType, timeToElapse) => {
   let factor;
 
-  if ((periodType === 'days')) {
+  if (periodType === 'days') {
     factor = Math.trunc(timeToElapse / 3);
     factor = 2 ** factor;
-  } else if ((periodType === 'weeks')) {
+  } else if (periodType === 'weeks') {
     factor = Math.trunc((timeToElapse * 7) / 3);
     factor = 2 ** factor;
-  } else if ((periodType === 'months')) {
+  } else if (periodType === 'months') {
     factor = Math.trunc((timeToElapse * 30) / 3);
     factor = 2 ** factor;
   }

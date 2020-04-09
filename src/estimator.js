@@ -2,19 +2,14 @@ import impacts from './impact';
 import severeImpacts from './severeImpact';
 
 const covid19ImpactEstimator = (data) => {
-  const {
-    reportedCases,
-    totalHospitalBeds,
-    timeToElapse,
-    periodType
-  } = data;
+  const { reportedCases, totalHospitalBeds, timeToElapse, periodType } = data;
 
   // IMPACT
   const impact = impacts(
     reportedCases,
     totalHospitalBeds,
     periodType,
-    timeToElapse,
+    timeToElapse
   );
 
   // SEVEREIMPACT
@@ -22,7 +17,7 @@ const covid19ImpactEstimator = (data) => {
     reportedCases,
     totalHospitalBeds,
     periodType,
-    timeToElapse,
+    timeToElapse
   );
 
   return { impact, severeImpact, data };
