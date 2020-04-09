@@ -3,7 +3,6 @@ const impact = (
   totalHospitalBeds,
   periodType,
   timeToElapse,
-  population
 ) => {
   let factor;
 

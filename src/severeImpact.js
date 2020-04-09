@@ -3,7 +3,6 @@ const severeImpact = (
   totalHospitalBeds,
   periodType,
   timeToElapse,
-  population
 ) => {
   let factor;
 
