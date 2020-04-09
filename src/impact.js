@@ -1,4 +1,11 @@
-const impact = (reportedCases, totalHospitalBeds, periodType, timeToElapse) => {
+const impact = (
+  reportedCases,
+  totalHospitalBeds,
+  periodType,
+  timeToElapse,
+  avgDailyIncomeInUSD,
+  avgDailyIncomePopulation
+) => {
   let factor;
 
   if (periodType === 'days') {
@@ -25,7 +32,12 @@ const impact = (reportedCases, totalHospitalBeds, periodType, timeToElapse) => {
   const casesForVentilatorsByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.02
   );
-  const dollarsInFlight = Math.trunc(infectionsByRequestedTime * 0.71 * 5 * 30);
+  const dollarsInFlight = Number(
+    infectionsByRequestedTime *
+      avgDailyIncomePopulation *
+      avgDailyIncomeInUSD *
+      factor
+  ).toFixed(2);
 
   return {
     currentlyInfected,

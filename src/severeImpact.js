@@ -2,7 +2,9 @@ const severeImpact = (
   reportedCases,
   totalHospitalBeds,
   periodType,
-  timeToElapse
+  timeToElapse,
+  avgDailyIncomeInUSD,
+  avgDailyIncomePopulation
 ) => {
   let factor;
 
@@ -31,7 +33,12 @@ const severeImpact = (
   const casesForVentilatorsByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.02
   );
-  const dollarsInFlight = Math.trunc(infectionsByRequestedTime * 0.71 * 5 * 30);
+  const dollarsInFlight = Number(
+    infectionsByRequestedTime *
+      avgDailyIncomePopulation *
+      avgDailyIncomeInUSD *
+      factor
+  ).toFixed(2);
 
   return {
     currentlyInfected,
