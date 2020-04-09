@@ -19,17 +19,19 @@ const severeImpact = (
 
   const currentlyInfected = Math.round(reportedCases * 50);
   const infectionsByRequestedTime = Math.round(currentlyInfected * factor);
-  const severeCasesByRequestedTime = Math.round(
+  const severeCasesByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.15
   );
-  const hospitalBedsByRequestedTime = Math.round(totalHospitalBeds / 0.35);
-  const casesForICUByRequestedTime = Math.round(
+  const hospitalBedsByRequestedTime = Math.trunc(
+    totalHospitalBeds * 0.35 - severeCasesByRequestedTime
+  );
+  const casesForICUByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.05
   );
-  const casesForVentilatorsByRequestedTime = Math.round(
+  const casesForVentilatorsByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.02
   );
-  const dollarsInFlight = Math.round(infectionsByRequestedTime * 0.71 * 5 * 30);
+  const dollarsInFlight = Math.trunc(infectionsByRequestedTime * 0.71 * 5 * 30);
 
   return {
     currentlyInfected,
