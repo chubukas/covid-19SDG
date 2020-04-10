@@ -32,8 +32,12 @@ const impact = (
   const casesForVentilatorsByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.02
   );
-  const dollarsInFlight = infectionsByRequestedTime
-    * avgDailyIncomePopulation * avgDailyIncomeInUSD * factor;
+  const dollarsInFlight = Math.trunc(
+    (infectionsByRequestedTime *
+      avgDailyIncomePopulation *
+      avgDailyIncomeInUSD) /
+      factor
+  );
 
   return {
     currentlyInfected,
