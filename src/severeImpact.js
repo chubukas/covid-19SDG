@@ -6,17 +6,20 @@ const severeImpact = (
   avgDailyIncomeInUSD,
   avgDailyIncomePopulation
 ) => {
-  let factor;
+  let factor, days;
 
   if (periodType === 'days') {
     factor = Math.trunc(timeToElapse / 3);
     factor = 2 ** factor;
+    days = timeToElapse;
   } else if (periodType === 'weeks') {
     factor = Math.trunc((timeToElapse * 7) / 3);
     factor = 2 ** factor;
+    days = Math.trunc(timeToElapse * 7)
   } else if (periodType === 'months') {
     factor = Math.trunc((timeToElapse * 30) / 3);
     factor = 2 ** factor;
+    days = Math.trunc(timeToElapse * 30);
   }
 
   const currentlyInfected = Math.trunc(reportedCases * 50);
@@ -37,7 +40,7 @@ const severeImpact = (
     (infectionsByRequestedTime
       * avgDailyIncomePopulation
       * avgDailyIncomeInUSD)
-    / timeToElapse
+    / days
   );
 
   return {
