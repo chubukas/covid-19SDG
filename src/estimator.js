@@ -10,8 +10,7 @@ const covid19ImpactEstimator = (data) => {
   } = data;
 
   const {
-    avgDailyIncomeInUSD,
-    avgDailyIncomePopulation 
+    avgDailyIncomeInUSD, avgDailyIncomePopulation 
   } = data.region;
   // IMPACT
   const impact = impacts(
@@ -33,7 +32,7 @@ const covid19ImpactEstimator = (data) => {
     avgDailyIncomePopulation
   );
 
-  return {  data, impact, severeImpact };
+  return { data, impact, severeImpact };
 };
 
 module.exports = covid19ImpactEstimator;
