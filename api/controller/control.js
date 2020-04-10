@@ -11,9 +11,9 @@ const builder = new xml.Builder({
 });
 
 exports.queryItemsxml = (req, res, next) => {
-  let data = req.body;
-   data = inputs(data);
-  const xmlData = builder.buildObject({ data });
+  let data;
+  data = req.body;
+  const xmlData = builder.buildObject( inputs(data) );
   res.header('Content-Type', 'text/xml');
   res.send(xmlData);
 };
