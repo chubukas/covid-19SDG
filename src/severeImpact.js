@@ -6,7 +6,8 @@ const severeImpact = (
   avgDailyIncomeInUSD,
   avgDailyIncomePopulation
 ) => {
-  let factor, days;
+  let factor;
+  let days;
 
   if (periodType === 'days') {
     factor = Math.trunc(timeToElapse / 3);
@@ -15,7 +16,7 @@ const severeImpact = (
   } else if (periodType === 'weeks') {
     factor = Math.trunc((timeToElapse * 7) / 3);
     factor = 2 ** factor;
-    days = Math.trunc(timeToElapse * 7)
+    days = Math.trunc(timeToElapse * 7);
   } else if (periodType === 'months') {
     factor = Math.trunc((timeToElapse * 30) / 3);
     factor = 2 ** factor;
