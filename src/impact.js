@@ -46,4 +46,4 @@ const impact = (
   };
 };
 
-export default impact;
+module.exports = impact;
