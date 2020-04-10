@@ -36,7 +36,7 @@ const impact = (
     (infectionsByRequestedTime
       * avgDailyIncomePopulation
       * avgDailyIncomeInUSD)
-    / factor
+    / timeToElapse
   );
 
   return {

@@ -37,7 +37,7 @@ const severeImpact = (
     (infectionsByRequestedTime
       * avgDailyIncomePopulation
       * avgDailyIncomeInUSD)
-    / factor
+    / timeToElapse
   );
 
   return {
