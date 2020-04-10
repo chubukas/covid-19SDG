@@ -47,4 +47,4 @@ const severeImpact = (
   };
 };
 
-export default severeImpact;
+module.exports = severeImpact;

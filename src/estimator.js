@@ -1,13 +1,17 @@
-import impacts from './impact';
-import severeImpacts from './severeImpact';
+
+const impacts = require('./impact');
+const severeImpacts = require('./severeImpact');
 
 const covid19ImpactEstimator = (data) => {
   const {
-    reportedCases, totalHospitalBeds, timeToElapse, periodType
+    reportedCases,
+    totalHospitalBeds,
+    timeToElapse, periodType
   } = data;
 
   const {
-    avgDailyIncomeInUSD, avgDailyIncomePopulation
+    avgDailyIncomeInUSD,
+    avgDailyIncomePopulation
   } = data.region;
   // IMPACT
   const impact = impacts(
@@ -29,7 +33,7 @@ const covid19ImpactEstimator = (data) => {
     avgDailyIncomePopulation
   );
 
-  return { impact, severeImpact, data };
+  return { data, impact, severeImpact };
 };
 
-export default covid19ImpactEstimator;
+module.exports = covid19ImpactEstimator;
