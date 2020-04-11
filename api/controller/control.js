@@ -1,5 +1,6 @@
 const inputs = require('../../src/estimator');
 const xml = require('xml2js');
+const files = require('../files');
 
 exports.queryItems = (req, res, next) => {
   let data = req.body;
@@ -16,4 +17,8 @@ exports.queryItemsxml = (req, res, next) => {
   const xmlData = builder.buildObject(inputs(data));
   res.type('application/xml');
   res.send(xmlData);
+};
+
+exports.logs = (req, res, next) => {
+  files.readFile(res);
 };

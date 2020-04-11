@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const route = require('./routes/route');
+const morgan = require('morgan');
+const file = require('./files');
 
 const app = express();
 
@@ -10,9 +12,22 @@ app.use((req, res, next) => {
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
   );
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Methods', 'POST , GET');
   next();
 });
+
+app.use(
+  morgan((tokens, req, res) => {
+    let display = [
+      tokens.method(req, res) + '\t\t',
+      tokens.url(req, res) + '\t\t',
+      tokens.status(req, res) + '\t\t',
+      tokens['response-time'](req, res),
+      'ms \n'
+    ].join(' ');
+    file.writeToFile(display);
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
