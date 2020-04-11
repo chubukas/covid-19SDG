@@ -13,7 +13,7 @@ const builder = new xml.Builder({
 exports.queryItemsxml = (req, res, next) => {
   let data;
   data = req.body;
-  const xmlData = builder.buildObject( inputs(data) );
-  res.header('Content-Type', 'text/xml');
+  const xmlData = builder.buildObject(inputs(data));
+  res.set('application/xml');
   res.send(xmlData);
 };
