@@ -14,6 +14,6 @@ exports.queryItemsxml = (req, res, next) => {
   let data;
   data = req.body;
   const xmlData = builder.buildObject(inputs(data));
-  res.set('application/xml');
+  res.type('application/xml');
   res.send(xmlData);
 };
