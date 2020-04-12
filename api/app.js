@@ -22,12 +22,12 @@ app.use(
       tokens.method(req, res) + '\t\t',
       tokens.url(req, res) + '\t\t',
       tokens.status(req, res) + '\t\t',
-      tokens['response-time'](req, res),
-      'ms \n'
+      Math.trunc(tokens['response-time'](req, res))+'ms \n'
     ].join(' ');
     file.writeToFile(display);
   })
 );
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
