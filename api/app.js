@@ -22,7 +22,7 @@ app.use(
       tokens.method(req, res) + '\t\t',
       tokens.url(req, res) + '\t\t',
       tokens.status(req, res) + '\t\t',
-      tokens['response-time'](req, res),
+      Math.trunc(tokens['response-time'](req, res)),
       'ms \n'
     ].join(' ');
     file.writeToFile(display);
