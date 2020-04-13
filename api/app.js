@@ -17,7 +17,6 @@ app.use((req, res, next) => {
 });
 
 const checkTime = (time) => {
-  time = parseFloat(time);
   if (time < 10) {
     time = `0${Math.floor(time)}`;
   } else {
