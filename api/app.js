@@ -16,18 +16,27 @@ app.use((req, res, next) => {
   next();
 });
 
+const checkTime = (time) => {
+  time = Math.ceil(parseFloat(time));
+  if (time < 10) {
+    time = `0${time.toString()}`;
+  } else {
+    time = time.toString();
+  }
+  return time;
+};
+
 app.use(
   morgan((tokens, req, res) => {
     let display = [
-      tokens.method(req, res) + '\t',
-      tokens.url(req, res) + '\t',
-      tokens.status(req, res) + '\t',
-      Math.trunc(tokens['response-time'](req, res))+'ms \n'
+      tokens.method(req, res) + '\t\t',
+      tokens.url(req, res) + '\t\t',
+      tokens.status(req, res) + '\t\t',
+      checkTime(tokens['response-time'](req, res)) + 'ms \n'
     ].join(' ');
     file.writeToFile(display);
   })
 );
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
