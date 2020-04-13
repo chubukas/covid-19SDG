@@ -26,13 +26,14 @@ const checkTime = (time) => {
   return time;
 };
 
+
 app.use(
   morgan((tokens, req, res) => {
     let display = [
       tokens.method(req, res) + '\t\t',
       tokens.url(req, res) + '\t\t',
       tokens.status(req, res) + '\t\t',
-      checkTime(tokens['response-time'](req, res)) + 'ms \n'
+      checkTime(tokens['response-time'](req, res)) + 'ms\n'
     ].join(' ');
     file.writeToFile(display);
   })
