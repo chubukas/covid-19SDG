@@ -17,10 +17,11 @@ app.use((req, res, next) => {
 });
 
 const checkTime = (time) => {
+  time = Math.round(time);
   if (time < 10) {
-    time = `0${Math.trunc(time)}`;
+    time = `0${time}`;
   } else {
-    time = Math.trunc(time);
+    time = time;
   }
   return time;
 };
@@ -28,9 +29,9 @@ const checkTime = (time) => {
 app.use(
   morgan((tokens, req, res) => {
     let display = [
-      tokens.method(req, res) + '\t',
-      tokens.url(req, res) + '\t',
-      tokens.status(req, res) + '\t',
+      tokens.method(req, res) + '\t\t',
+      tokens.url(req, res) + '\t\t',
+      tokens.status(req, res) + '\t\t',
       checkTime(tokens['response-time'](req, res)) + 'ms \n'
     ].join(' ');
     file.writeToFile(display);
