@@ -23,7 +23,7 @@ const checkTime = (time) => {
   } else {
     time = time.toString();
   }
-  return Math.ceil(time);
+  return Math.trunc(time);
 };
 
 app.use(
