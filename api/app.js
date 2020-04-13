@@ -19,11 +19,11 @@ app.use((req, res, next) => {
 const checkTime = (time) => {
   time = parseFloat(time);
   if (time < 10) {
-    time = `0${time.toString()}`;
+    time = `0${Math.trunc(time)}`;
   } else {
-    time = time.toString();
+    time = Math.trunc(time);
   }
-  return Math.trunc(time);
+  return time;
 };
 
 app.use(
