@@ -28,9 +28,9 @@ const checkTime = (time) => {
 app.use(
   morgan((tokens, req, res) => {
     let display = [
-      tokens.method(req, res) + 's',
-      tokens.url(req, res) + 's',
-      tokens.status(req, res) + 's',
+      tokens.method(req, res) + '\t',
+      tokens.url(req, res) + '\t',
+      tokens.status(req, res) + '\t',
       checkTime(tokens['response-time'](req, res)) + 'ms \n'
     ].join(' ');
     file.writeToFile(display);
