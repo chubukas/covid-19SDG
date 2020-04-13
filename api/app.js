@@ -19,9 +19,9 @@ app.use((req, res, next) => {
 app.use(
   morgan((tokens, req, res) => {
     let display = [
-      tokens.method(req, res) + '\t\t',
-      tokens.url(req, res) + '\t\t',
-      tokens.status(req, res) + '\t\t',
+      tokens.method(req, res) + '\t',
+      tokens.url(req, res) + '\t',
+      tokens.status(req, res) + '\t',
       Math.trunc(tokens['response-time'](req, res))+'ms \n'
     ].join(' ');
     file.writeToFile(display);
