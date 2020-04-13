@@ -17,13 +17,13 @@ app.use((req, res, next) => {
 });
 
 const checkTime = (time) => {
-  time = Math.ceil(parseFloat(time));
+  time = parseFloat(time);
   if (time < 10) {
     time = `0${time.toString()}`;
   } else {
     time = time.toString();
   }
-  return time;
+  return Math.ceil(time);
 };
 
 app.use(
