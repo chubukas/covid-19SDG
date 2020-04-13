@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 const checkTime = (time) => {
-  time = Math.trunc(parseFloat(time));
+  time = Math.ceil(parseFloat(time));
   if (time < 10) {
     time = `0${time.toString()}`;
   } else {
