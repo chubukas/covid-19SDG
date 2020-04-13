@@ -5,7 +5,8 @@ const filePath = path.join(__dirname, './logs.json');
 exports.readFile = (res) => {
   fs.readFile(filePath, { encoding: 'utf-8' }, function (err, data) {
     if (!err) {
-      res.type('text/plain');
+      res.setHeader('Content-type', 'text/plain');
+      res.status(200);
       res.send(data);
     } else {
       res.send(err);
